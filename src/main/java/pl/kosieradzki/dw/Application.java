@@ -11,6 +11,8 @@ public class Application extends javafx.application.Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
+        stage.setResizable(false);
+        //stage.getIcons().add(new Image(getClass().getResourceAsStream("icon/icon.ico")));
         stage.setTitle("Dziennik Wdzięczności 2.0");
         stage.setScene(scene);
         stage.show();

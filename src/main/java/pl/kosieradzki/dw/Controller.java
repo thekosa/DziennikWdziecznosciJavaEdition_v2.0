@@ -1,9 +1,19 @@
 package pl.kosieradzki.dw;
 
+import javafx.animation.PauseTransition;
 import javafx.application.Platform;
 import javafx.scene.control.*;
+import javafx.util.Duration;
 
+import java.awt.Desktop;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Controller {
     public CheckBox inBulkCheckBox;
@@ -20,6 +30,7 @@ public class Controller {
     public Button saveButton;
     public Button clearButton;
     public Button previewButton;
+    public Label isFileExistsLabel;
 
     public RadioButton baseTargetRadio;
     public RadioButton travelingTargetRadio;
@@ -39,27 +50,51 @@ public class Controller {
         anotherDateCheckBox.selectedProperty().addListener((target) -> datePicker.setDisable(!anotherDateCheckBox.isSelected()));
     }
 
-
-    public void saveAndExitButtonOnClick() {
-        saveButtonOnClick();
-        exitButtonOnClick();
-    }
-
     public void clearButtonOnClick() {
         thankfulness1.setText(null);
         thankfulness2.setText(null);
         thankfulness3.setText(null);
     }
 
-    public void saveButtonOnClick() {
+    public void saveButtonOnClick() throws IOException {
+        Entry entry = new Entry();
+        List<String> thankfulnessesList = new ArrayList<>();
+        thankfulnessesList.add(thankfulness1.getText() == null ? "" : thankfulness1.getText());
+        if (baseTargetRadio.isSelected()) {
+            thankfulnessesList.add(thankfulness2.getText() == null ? "" : thankfulness2.getText());
+            thankfulnessesList.add(thankfulness3.getText() == null ? "" : thankfulness3.getText());
+        }
+        entry.setCollection(thankfulnessesList);
+        entry.setDate(datePicker.getValue());
 
+        PrintWriter printWriter = new PrintWriter(new FileWriter("DziennikWdziecznosci.txt", true));
+        printWriter.println(entry.getEntry());
+        printWriter.close();
+        isFileExistsLabel.setVisible(false);
+        clearButtonOnClick();
+    }
+
+    public void previewOnClick() throws IOException, InterruptedException {
+        Desktop desktop = Desktop.getDesktop();
+        File file = new File("DziennikWdziecznosci.txt");
+        if (file.exists()) {
+            isFileExistsLabel.setVisible(false);
+            desktop.open(file);
+        } else {
+            isFileExistsLabel.setVisible(true);
+            PauseTransition delay = new PauseTransition(Duration.seconds(3));
+            delay.setOnFinished(event -> isFileExistsLabel.setVisible(false));
+            delay.play();
+        }
     }
 
     public void exitButtonOnClick() {
         Platform.exit();
     }
 
-    public void previewOnClick() {
+    public void saveAndExitButtonOnClick() throws IOException {
+        saveButtonOnClick();
+        exitButtonOnClick();
     }
 
     private void setInBulkStates(boolean state) {

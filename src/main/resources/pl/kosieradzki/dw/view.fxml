@@ -108,5 +108,11 @@
                 <Font size="18.0"/>
             </font>
         </Label>
+        <Label fx:id="isFileExistsLabel" layoutX="295.0" layoutY="326.0" prefHeight="50.0" prefWidth="224.0"
+               text="Dziennik jeszcze nie istnieje." textAlignment="CENTER" textFill="#de1919" visible="false">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Label>
     </Pane>
 </VBox>
