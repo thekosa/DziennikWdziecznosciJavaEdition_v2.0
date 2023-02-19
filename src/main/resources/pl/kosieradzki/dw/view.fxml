@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+      prefHeight="480.0" prefWidth="854.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.kosieradzki.dw.Controller">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+    <Pane prefHeight="480.0" prefWidth="854.0">
+        <Label layoutX="14.0" layoutY="13.0" pickOnBounds="false" prefHeight="17.0" prefWidth="125.0"
+               text="Notka dla celu:">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Label>
+        <DatePicker fx:id="datePicker" disable="true" layoutX="553.0" layoutY="14.0" prefHeight="25.0"
+                    prefWidth="250.0"/>
+        <TextField fx:id="thankfulness1" layoutX="67.0" layoutY="178.0" prefHeight="40.0" prefWidth="700.0">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </TextField>
+        <TextField fx:id="thankfulness2" layoutX="67.0" layoutY="224.0" prefHeight="40.0" prefWidth="700.0">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </TextField>
+        <Button fx:id="saveAndExitButton" layoutX="552.0" layoutY="376.0" mnemonicParsing="false"
+                onAction="#saveAndExitButtonOnClick" prefHeight="50.0" prefWidth="250.0" text="Zapisz i wyjdź">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Button>
+        <Button fx:id="clearButton" layoutX="552.0" layoutY="130.0" mnemonicParsing="false"
+                onAction="#clearButtonOnClick" prefHeight="40.0" prefWidth="250.0" text="Wyczyść">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Button>
+        <Button fx:id="saveButton" disable="true" layoutX="14.0" layoutY="376.0" mnemonicParsing="false"
+                onAction="#saveButtonOnClick" prefHeight="50.0" prefWidth="250.0" text="Zapisz" visible="false">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Button>
+        <Button fx:id="exitButton" disable="true" layoutX="553.0" layoutY="376.0" mnemonicParsing="false"
+                onAction="#exitButtonOnClick" prefHeight="50.0" prefWidth="250.0" text="Wyjdź" visible="false">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Button>
+        <Button fx:id="previewButton" layoutX="282.0" layoutY="376.0" mnemonicParsing="false" onAction="#previewOnClick"
+                prefHeight="50.0" prefWidth="250.0" text="Podgląd dziennika">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Button>
+        <RadioButton fx:id="baseTargetRadio" layoutX="38.0" layoutY="44.0" mnemonicParsing="false" selected="true"
+                     text="Podstawowego">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </RadioButton>
+        <RadioButton fx:id="travelingTargetRadio" layoutX="38.0" layoutY="71.0" mnemonicParsing="false"
+                     text="Wyjazdowego">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </RadioButton>
+        <TextField fx:id="thankfulness3" layoutX="67.0" layoutY="270.0" prefHeight="40.0" prefWidth="700.0">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </TextField>
+        <CheckBox fx:id="anotherDateCheckBox" layoutX="349.0" layoutY="15.0" mnemonicParsing="false" text="Inna data">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </CheckBox>
+        <CheckBox fx:id="inBulkCheckBox" layoutX="349.0" layoutY="46.0" mnemonicParsing="false"
+                  text="Dodawanie hurtowe">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </CheckBox>
+        <Label fx:id="thankfulness1Label" layoutX="42.0" layoutY="184.0" text="1. ">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Label>
+        <Label fx:id="thankfulness2Label" layoutX="42.0" layoutY="230.0" text="2. ">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Label>
+        <Label fx:id="thankfulness3Label" layoutX="42.0" layoutY="276.0" text="3. ">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Label>
+        <Label layoutX="13.0" layoutY="136.0" text="Jestem wdzięczny za:">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Label>
+    </Pane>
+</VBox>

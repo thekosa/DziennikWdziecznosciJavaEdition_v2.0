@@ -61,7 +61,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                pl.kosieradzki.dw.dziennikwdziecznoscijavaedition_v2/pl.kosieradzki.dw.HelloApplication
+                                pl.kosieradzki.dw.dziennikwdziecznoscijavaedition_v2/pl.kosieradzki.dw.Application
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
